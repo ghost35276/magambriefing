@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>전체 글 | 마감 브리핑</title>
+<meta name="description" content="일일 마감 브리핑과 주간 증권가 뉴스 정리 전체 목록.">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="index.html">마감 브리핑</a>
+    <nav>
+      <a href="index.html">홈</a>
+      <a href="archive.html">전체 글</a>
+      <a href="membership.html">멤버십</a>
+      <a href="products.html">자료실</a>
+      <a href="about.html">소개</a>
+    </nav>
+  </div>
+</header>
+<main class="wrap">
+  <h1>전체 글</h1>
+  <p class="meta">
+    <a href="#" data-f="all">전체</a> ·
+    <a href="#" data-f="daily">일일 마감</a> ·
+    <a href="#" data-f="weekly">주간 뉴스</a>
+  </p>
+  <ul class="list" id="all"></ul>
+</main>
+<footer class="site">
+  <div class="wrap">
+    <a href="about.html">소개</a>
+    <a href="privacy.html">개인정보처리방침</a>
+    <a href="disclaimer.html">면책 고지</a>
+    <p>© 마감 브리핑</p>
+  </div>
+</footer>
+<script src="js/posts.js"></script>
+<script>
+  var ul = document.getElementById('all');
+  function render(f) {
+    var items = (window.POSTS || []).filter(function (p) { return f === 'all' || p.type === f; });
+    ul.innerHTML = items.length ? items.map(function (p) {
+      return '<li><a href="' + p.url + '">' + p.title + '</a><span class="date">' + p.date + '</span></li>';
+    }).join('') : '<li><span>등록된 글이 없습니다.</span></li>';
+  }
+  document.querySelectorAll('[data-f]').forEach(function (a) {
+    a.addEventListener('click', function (e) { e.preventDefault(); render(a.dataset.f); });
+  });
+  render('all');
+</script>
+</body>
+</html>
