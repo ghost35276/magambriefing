@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+[주간 증권가 뉴스 템플릿] 이 파일은 사이트에 공개되지 않는 templates 폴더에 둡니다.
+
+사용법
+1. 이 파일을 복사해 site/briefings/weekly-YYYY-MM-DD.html 로 저장합니다. (날짜는 해당 주 마지막 거래일)
+2. {{ }} 부분을 채웁니다.
+3. 이 주석 블록 전체를 삭제한 뒤 올립니다.
+
+작성 규칙 (법적 유의사항)
+- 기사 제목·문장·표·사진을 그대로 옮기지 않습니다. 기사에서 확인한 사실만 직접 문장으로 요약합니다.
+- 뉴스마다 매체명, 발행일, 원문 링크를 적습니다.
+- 사실만 적습니다. 전망, 예상, 종목 추천, 목표 주가, 매매 시점은 쓰지 않습니다.
+  운영자는 투자자문업 등록·유사투자자문업 신고를 하지 않았으므로, 투자 판단에 관한 조언으로 볼 수 있는 표현을 피합니다.
+- 지수 수치는 출처와 확인 시각을 적습니다. KRX 정보데이터시스템의 표를 그대로 옮기거나 자동 수집하지 않습니다.
+- '다음 주 일정'에는 이미 공표된 일정만 적고, 결과 예측은 적지 않습니다.
+- 제휴 링크를 넣는 경우에만 '제휴 고지' 블록의 주석을 풀어 본문 첫 부분에 표시합니다.
+- 해시태그는 10개까지 씁니다.
+-->
+<title>{{M월 N주차}} 증권가 주요 뉴스 정리 | 마감 브리핑</title>
+<meta name="description" content="{{YYYY-MM-DD ~ YYYY-MM-DD}} 한 주간 증권가 주요 뉴스를 출처와 함께 정리했습니다.">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../index.html">마감 브리핑</a>
+    <nav>
+      <a href="../index.html">홈</a>
+      <a href="../archive.html">전체 글</a>
+      <a href="../products.html">자료실</a>
+      <a href="../about.html">소개</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <article>
+    <h1>{{M월 N주차}} 증권가 주요 뉴스 정리</h1>
+    <p class="meta">대상 기간: {{YYYY-MM-DD ~ YYYY-MM-DD}} · 작성: {{YYYY-MM-DD}}</p>
+
+    <!-- [제휴 고지] 제휴 링크가 있을 때만 주석을 풀어 사용합니다. 문구를 "받을 수 있음"처럼 모호하게 바꾸지 않습니다.
+    <div class="notice">이 글에는 제휴 링크가 들어 있습니다. 링크를 통해 구매가 이루어지면 운영자는 {{제휴사명}}으로부터 수수료를 받습니다.</div>
+    -->
+
+    <h2>이번 주 지수 마감</h2>
+    <table>
+      <thead><tr><th>지수</th><th>전주 종가</th><th>이번 주 종가</th><th>주간 등락률</th></tr></thead>
+      <tbody>
+        <tr><td>코스피</td><td>{{}}</td><td>{{}}</td><td>{{}}</td></tr>
+        <tr><td>코스닥</td><td>{{}}</td><td>{{}}</td><td>{{}}</td></tr>
+      </tbody>
+    </table>
+    <p class="meta">지수 출처: {{출처명}} · 확인 시각: {{YYYY-MM-DD HH:MM}}</p>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <h2>주요 뉴스</h2>
+    <h3>{{뉴스 1 요지를 직접 쓴 제목}}</h3>
+    <p>{{확인된 사실을 직접 요약}}</p>
+    <p class="meta">출처: {{매체명}}, {{발행일}} · <a href="{{원문 URL}}" rel="noopener">원문</a></p>
+
+    <h3>{{뉴스 2 요지를 직접 쓴 제목}}</h3>
+    <p>{{확인된 사실을 직접 요약}}</p>
+    <p class="meta">출처: {{매체명}}, {{발행일}} · <a href="{{원문 URL}}" rel="noopener">원문</a></p>
+
+    <h3>{{뉴스 3 요지를 직접 쓴 제목}}</h3>
+    <p>{{확인된 사실을 직접 요약}}</p>
+    <p class="meta">출처: {{매체명}}, {{발행일}} · <a href="{{원문 URL}}" rel="noopener">원문</a></p>
+
+    <h2>다음 주 공표된 일정</h2>
+    <p>{{이미 공표된 경제지표 발표, 실적 발표, 정책 회의 일정과 그 출처만 기재. 결과 예측 금지}}</p>
+
+    <!-- 정정 시 아래 줄을 추가합니다.
+    <p class="meta">정정: {{YYYY-MM-DD}} {{정정 내용}}</p>
+    -->
+
+    <div class="tags">
+      <span>#주가</span><span>#증권가뉴스</span><span>#주간증시</span><span>#코스피</span><span>#코스닥</span>
+      <span>#{{키워드}}</span><span>#{{키워드}}</span><span>#{{키워드}}</span><span>#{{키워드}}</span><span>#{{키워드}}</span>
+    </div>
+
+    <div class="notice">이 글은 정보 제공을 목적으로 하며 투자 권유가 아닙니다. 투자 판단과 그 결과에 대한 책임은 투자자 본인에게 있습니다.</div>
+  </article>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <a href="../about.html">소개</a>
+    <a href="../privacy.html">개인정보처리방침</a>
+    <a href="../disclaimer.html">면책 고지</a>
+    <p>© 마감 브리핑</p>
+  </div>
+</footer>
+</body>
+</html>

@@ -14,7 +14,7 @@ from pathlib import Path
 DOMAIN = "https://magambriefing.com"
 ROOT = Path(__file__).resolve().parent.parent / "site"
 
-STATIC = ["", "archive", "about", "membership", "products", "privacy", "disclaimer"]
+STATIC = ["", "archive", "about", "products", "privacy", "disclaimer"]
 
 
 def read_posts():

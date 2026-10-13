@@ -1,8 +1,4 @@
 User-agent: *
 Allow: /
-Disallow: /briefings/_template-daily.html
-Disallow: /briefings/_template-weekly.html
-Disallow: /briefings/_template-daily
-Disallow: /briefings/_template-weekly
 
 Sitemap: https://magambriefing.com/sitemap.xml

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--
+[일일 마감 브리핑 템플릿] 이 파일은 사이트에 공개되지 않는 templates 폴더에 둡니다.
+
+사용법
+1. 이 파일을 복사해 site/briefings/YYYY-MM-DD.html 로 저장합니다.
+2. {{ }} 부분을 장 마감 후 확정된 수치로 채웁니다. 확정되지 않은 수치는 행을 삭제합니다.
+3. 이 주석 블록 전체를 삭제한 뒤 올립니다.
+
+작성 규칙 (법적 유의사항)
+- 사실만 적습니다. 추정치, 전망, 예상 표현은 쓰지 않습니다.
+- 특정 종목의 매수·매도 추천, 목표 주가, 매매 시점은 쓰지 않습니다.
+  운영자는 투자자문업 등록·유사투자자문업 신고를 하지 않았으므로, 투자 판단에 관한 조언으로 볼 수 있는 표현을 피합니다.
+- 데이터 출처와 확인 시각을 반드시 적습니다.
+- 한국거래소(KRX) 정보데이터시스템 이용약관은 거래소의 사전 허락 없이 사이트 정보를 복사·복제·배포·공중송신하는 것과
+  자동화 수단으로 수집·배포하는 것을 금지합니다. KRX 화면의 표를 그대로 옮기거나 자동 수집하지 않습니다.
+  KRX 데이터를 직접 쓰려면 거래소에 이용 허락을 먼저 확인합니다.
+- 기사 문장이나 표를 그대로 옮기지 않습니다. 사실만 직접 쓰고 출처를 적습니다.
+- 제휴 링크를 넣는 경우에만 아래 '제휴 고지' 블록의 주석을 풀어 본문 첫 부분에 표시합니다.
+- 해시태그는 10개까지 씁니다.
+-->
+<title>{{YYYY년 M월 D일}} 코스피·코스닥 마감 브리핑 | 마감 브리핑</title>
+<meta name="description" content="{{YYYY년 M월 D일}} 코스피 {{종가}}, 코스닥 {{종가}} 마감. 투자자별 순매수 정리.">
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="../index.html">마감 브리핑</a>
+    <nav>
+      <a href="../index.html">홈</a>
+      <a href="../archive.html">전체 글</a>
+      <a href="../products.html">자료실</a>
+      <a href="../about.html">소개</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+  <article>
+    <h1>{{YYYY년 M월 D일}} 코스피·코스닥 마감 브리핑</h1>
+    <p class="meta">작성: {{YYYY-MM-DD HH:MM}} · 장 마감 후 확정 수치 기준</p>
+
+    <!-- [제휴 고지] 제휴 링크가 있을 때만 주석을 풀어 사용합니다. 문구를 "받을 수 있음"처럼 모호하게 바꾸지 않습니다.
+    <div class="notice">이 글에는 제휴 링크가 들어 있습니다. 링크를 통해 구매가 이루어지면 운영자는 {{제휴사명}}으로부터 수수료를 받습니다.</div>
+    -->
+
+    <h2>1. 마감 지수</h2>
+    <table>
+      <thead><tr><th>지수</th><th>종가</th><th>전일 대비</th><th>등락률</th><th>거래대금</th></tr></thead>
+      <tbody>
+        <tr><td>코스피</td><td>{{종가}}</td><td class="{{up|down}}">{{±포인트}}</td><td class="{{up|down}}">{{±%}}</td><td>{{조원}}</td></tr>
+        <tr><td>코스닥</td><td>{{종가}}</td><td class="{{up|down}}">{{±포인트}}</td><td class="{{up|down}}">{{±%}}</td><td>{{조원}}</td></tr>
+      </tbody>
+    </table>
+
+    <div class="ad-slot">광고 영역</div>
+
+    <h2>2. 투자자별 순매수</h2>
+    <table>
+      <thead><tr><th>구분</th><th>개인</th><th>외국인</th><th>기관</th></tr></thead>
+      <tbody>
+        <tr><td>코스피</td><td>{{억원}}</td><td>{{억원}}</td><td>{{억원}}</td></tr>
+        <tr><td>코스닥</td><td>{{억원}}</td><td>{{억원}}</td><td>{{억원}}</td></tr>
+      </tbody>
+    </table>
+
+    <h2>3. 장 마감 후 확정 수치</h2>
+    <p>{{상승·하락 종목 수, 상한가·하한가 종목 수 등 확정된 수치만 기재}}</p>
+
+    <h2>4. 시황 요약</h2>
+    <p>{{확인된 사실만 서술. 전망·예상·추정·추천 표현 금지}}</p>
+
+    <p class="meta">데이터 출처: {{출처명}} · 확인 시각: {{YYYY-MM-DD HH:MM}}</p>
+    <!-- 정정 시 아래 줄을 추가합니다.
+    <p class="meta">정정: {{YYYY-MM-DD}} {{정정 내용}}</p>
+    -->
+
+    <div class="tags">
+      <span>#주가</span><span>#코스피</span><span>#코스닥</span><span>#증시마감</span><span>#외국인순매수</span>
+      <span>#기관순매수</span><span>#개인순매수</span><span>#거래대금</span><span>#시황</span><span>#{{당일 키워드}}</span>
+    </div>
+
+    <div class="notice">이 글은 정보 제공을 목적으로 하며 투자 권유가 아닙니다. 투자 판단과 그 결과에 대한 책임은 투자자 본인에게 있습니다.</div>
+  </article>
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <a href="../about.html">소개</a>
+    <a href="../privacy.html">개인정보처리방침</a>
+    <a href="../disclaimer.html">면책 고지</a>
+    <p>© 마감 브리핑</p>
+  </div>
+</footer>
+</body>
+</html>
